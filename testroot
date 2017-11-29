@@ -1,0 +1,2 @@
+app_name = mus
+cli_args = '--error'
