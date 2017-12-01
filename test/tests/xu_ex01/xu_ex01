@@ -1,0 +1,46 @@
+[Mesh]
+  type = FileMesh
+  file = ../moose/examples/ex01_inputfile/mug.e
+[]
+
+[Variables]
+  [./diffused]
+  [../]
+[]
+
+[Kernels]
+  [./Diffusion]
+    type = Diffusion
+    variable = diffused
+  [../]
+[]
+
+[BCs]
+  [./top]
+    type = DirichletBC
+    variable = diffused
+    boundary = top
+    value = 0
+  [../]
+  [./bottom]
+    type = DirichletBC
+    variable = diffused
+    boundary = bottom
+    value = 1
+  [../]
+[]
+
+[Executioner]
+  type = Steady
+  solve_type = PJFNK
+[]
+
+[Outputs]
+  [./screen]
+    type = Console
+  [../]
+  [./Exodus]
+    type = Exodus
+  [../]
+[]
+
