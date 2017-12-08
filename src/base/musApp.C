@@ -4,6 +4,8 @@
 #include "ModulesApp.h"
 #include "MooseSyntax.h"
 
+#include "ExampleConstConvection.h"  // a convection kernel
+
 template <>
 InputParameters
 validParams<musApp>()
@@ -32,9 +34,10 @@ musApp::registerApps()
 }
 
 void
-musApp::registerObjects(Factory & /*factory*/)
+musApp::registerObjects(Factory & factory)
 {
   /* Uncomment Factory parameter and register your new production objects here! */
+	registerKernel(ExampleConstConvection);  // register a convection kernel
 }
 
 void
